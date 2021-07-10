@@ -157,8 +157,8 @@ else
     fi
     cp -fr sstarget/blog/* blog
 fi
-rm -rf sstarget
-rm -rf _shardingsphere
+rm -rf $root/sstarget
+rm -rf $root/_shardingsphere
 
 
 #######################################
