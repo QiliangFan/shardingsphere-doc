@@ -44,13 +44,23 @@ build_docs(){
     sed -i "s/\/document\/current/\/document\/master/g" $1/document/config.toml
     if [ -d $dst_dir ] ; then
       rm -rf $dst_dir/*
-    fi
+    else
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/master\/en"\n                  target="_blank">'$2'<\/a>/g' $root/index.html
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/master\/en"\n              target="_blank">'$2'<\/a>/g' $root/index_m.html
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/master\/cn"\n                  target="_blank">'$2'<\/a>/g' $root/index_zh.html
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/master\/cn"\n              target="_blank">'$2'<\/a>/g' $root/index_m_zh.html
+    fi 
   else
     dst_dir=$root/document/legacy/$2
     sed -i "s/\/document\/current/\/document\/legacy\/$2/g" $1/document/config.toml
     sed -i "s/\/master\//\/$2\//g" $1/document/config.toml
     if [ -d $dst_dir ] ; then
       return 0  # nothing to do
+    else
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/en"\n                  target="_blank">'$2'<\/a>/g' $root/index.html
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/en"\n              target="_blank">'$2'<\/a>/g' $root/index_m.html
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/cn"\n                  target="_blank">'$2'<\/a>/g' $root/index_zh.html
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/cn"\n              target="_blank">'$2'<\/a>/g' $root/index_m_zh.html
     fi
   fi
 
@@ -66,6 +76,7 @@ build_docs(){
   rm -rf $src_dir
   cp -rf $1/target/* $3
   rm -rf $1/target
+
   return 1
 }
 
@@ -88,7 +99,7 @@ git clone https://github.com/apache/shardingsphere _shardingsphere
 # ------------------------- build history docs --------------------------------------
 if [ $RELEASE_UPDATE -gt 0 ] ; then
   cd _shardingsphere
-  TAGS=(`git tag --sort=taggerdate -l | tac`// /)
+  TAGS=(`git tag --sort=taggerdate -l | tac`)
   newest_tag=${TAGS[0]}
   echo Get the newest tag: $newest_tag
   git checkout $newest_tag > /dev/null
@@ -97,11 +108,11 @@ if [ $RELEASE_UPDATE -gt 0 ] ; then
   build_docs $root/_shardingsphere/docs $newest_tag $root/sstarget
   if [ $? -gt 0 ] ; then
     echo New release docuemnt are built successful...
+    cd $root
     git add .
     git commit -m "build document with tag $2"
     git push
   fi
-  cd $root
 fi
 # -----------------------------------------------------------------------------------
 
