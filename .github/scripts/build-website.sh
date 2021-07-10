@@ -44,11 +44,6 @@ build_docs(){
     sed -i "s/\/document\/current/\/document\/master/g" $1/document/config.toml
     if [ -d $dst_dir ] ; then
       rm -rf $dst_dir/*
-    else
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/master\/en"\n                  target="_blank">'$2'<\/a>/g' $root/index.html
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/master\/en"\n              target="_blank">'$2'<\/a>/g' $root/index_m.html
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/master\/cn"\n                  target="_blank">'$2'<\/a>/g' $root/index_zh.html
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/master\/cn"\n              target="_blank">'$2'<\/a>/g' $root/index_m_zh.html
     fi 
   else
     dst_dir=$root/document/legacy/$2
@@ -57,10 +52,10 @@ build_docs(){
     if [ -d $dst_dir ] ; then
       return 0  # nothing to do
     else
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/en"\n                  target="_blank">'$2'<\/a>/g' $root/index.html
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/en"\n              target="_blank">'$2'<\/a>/g' $root/index_m.html
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/cn"\n                  target="_blank">'$2'<\/a>/g' $root/index_zh.html
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/cn"\n              target="_blank">'$2'<\/a>/g' $root/index_m_zh.html
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/en\/overview"\n                  target="_blank">'$2'<\/a>/g' $root/index.html
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/en\/overview"\n              target="_blank">'$2'<\/a>/g' $root/index_m.html
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/cn\/overview"\n                  target="_blank">'$2'<\/a>/g' $root/index_zh.html
+        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/cn\/overview"\n              target="_blank">'$2'<\/a>/g' $root/index_m_zh.html
     fi
   fi
 
