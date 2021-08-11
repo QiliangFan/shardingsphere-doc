@@ -15,7 +15,6 @@
 # limitations under the License.
 #
 
-set -e  # exit scripts when errors occurred
 root=`pwd` && cd $root
 
 # codes reuse
@@ -39,7 +38,7 @@ build_docs(){
   sed -i "s/\/document\/current/\/document\/$1/g" docs/document/config.toml
   sed -i "/editURL/d" docs/document/config.toml
   if [ -d $dst_dir ] ; then
-    git reset --hard HEAD
+    git stash
     return 0  # nothing to do
   else
       cd ..
@@ -64,7 +63,7 @@ build_docs(){
   cp -rf $src_dir/* $dst_dir/
   rm -rf $src_dir
 
-  git reset --hard HEAD
+  git stash
   return 0
 }
 
@@ -89,6 +88,7 @@ cd _shardingsphere
 TAGS=(`git tag --sort=taggerdate -l '*-doc'`)
 echo ${TAGS[@]}
 if [ ${#TAGS} -gt 0 ] ; then
+  count=1
   for tag in ${TAGS[@]}
   do
     echo Get the tag: $tag
@@ -96,26 +96,23 @@ if [ ${#TAGS} -gt 0 ] ; then
     build_docs $tag ;
   done
 fi
-
 cd $root
-rm _shardingsphere
-git add .
-git commit -m "build document..." > /dev/null
-git push
 
 # -----------------------------------------------------------------------------------
 echo check diff
 if  [ ! -s old_version_ss ]  ; then
     echo init > old_version_ss 
 fi
-cd $root/_shardingsphere
+cd _shardingsphere
+git checkout master
 git log -1 -p docs > new_version_ss
 diff ../old_version_ss new_version_ss > result_version
+
 if  [ ! -s result_version ]  ; then
     echo "shardingsphere docs sources didn't change and nothing to do!"
     cd ..
 else
-    count=1
+    count=2
     echo "check shardingsphere something new, launch a build..."
     cd ..
     rm -rf old_version_ss
@@ -162,8 +159,6 @@ else
     
     rm -rf sstarget
 fi
-rm -rf $root/sstarget
-rm -rf $root/_shardingsphere
 
 #######################################
 ##  SHARDINGSPHERE-ELASTICJOB/DOCS   ##
@@ -185,7 +180,7 @@ if  [ ! -s result_version ]  ; then
     cd ..
     rm -rf _elasticjob
 else
-    count=2
+    count=3
     echo "check elasticjob something new, launch a build..."
     cd ..
     rm -rf old_version_ej
