@@ -98,6 +98,7 @@ if [ ${#TAGS} -gt 0 ] ; then
 fi
 
 cd $root
+rm _shardingsphere
 git add .
 git commit -m "build document..." > /dev/null
 git push
