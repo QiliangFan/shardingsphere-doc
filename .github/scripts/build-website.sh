@@ -84,7 +84,7 @@ git clone https://github.com/apache/shardingsphere _shardingsphere
 
 # ------------------------- build history docs --------------------------------------
 cd _shardingsphere
-TAGS=(`git tag --sort=taggerdate -l '*.*.*'`)
+TAGS=(`git tag --sort=taggerdate -l '*-doc'`)
 echo ${TAGS[@]}
 if [ ${#TAGS} -gt 0 ] ; then
   count=1
