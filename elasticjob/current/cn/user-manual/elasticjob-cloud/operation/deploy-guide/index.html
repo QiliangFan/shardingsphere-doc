@@ -3,9 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="generator" content="Hugo 0.84.4" />
     <meta name="description" content="">
-    <meta name="buildDate" content="2021-07-06 13:40:50">
+    <meta name="buildDate" content="2021-08-11 22:45:37">
 
 
     <link rel="shortcut icon" href="https://shardingsphere.apache.org/elasticjob/images/favicon.png" type="image/x-icon" />
@@ -13,19 +13,19 @@
     <title>部署指南 :: ElasticJob</title>
     
     
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/nucleus.css?1625550050" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/font-awesome.min.css?1625550050" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/hybrid.css?1625550050" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/featherlight.min.css?1625550050" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/perfect-scrollbar.min.css?1625550050" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/auto-complete.css?1625550050" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/theme.css?1625550050" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/hugo-theme.css?1625550050" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/nucleus.css?1628693137" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/font-awesome.min.css?1628693137" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/hybrid.css?1628693137" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/featherlight.min.css?1628693137" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/perfect-scrollbar.min.css?1628693137" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/auto-complete.css?1628693137" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/theme.css?1628693137" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/hugo-theme.css?1628693137" rel="stylesheet">
     
-      <link href="https://shardingsphere.apache.org/elasticjob/current/css/theme-black.css?1625550050" rel="stylesheet">
+      <link href="https://shardingsphere.apache.org/elasticjob/current/css/theme-black.css?1628693137" rel="stylesheet">
     
 
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/jquery-2.x.min.js?1625550050"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/jquery-2.x.min.js?1628693137"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -38,7 +38,7 @@
     
 
   </head>
-  <body class="" data-url="/cn/user-manual/elasticjob-cloud/operation/deploy-guide/">
+  <body class="" data-url="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/elasticjob-cloud/operation/deploy-guide/">
     <nav id="sidebar" class="">
 
 
@@ -1975,95 +1975,95 @@
 <thead>
 <tr>
 <th>属性名称</th>
-<th align="left">是否必填</th>
-<th align="left">默认值</th>
-<th align="left">描述</th>
+<th style="text-align:left">是否必填</th>
+<th style="text-align:left">默认值</th>
+<th style="text-align:left">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>hostname</td>
-<td align="left">是</td>
-<td align="left"></td>
-<td align="left">服务器真实的 IP 或 hostname，不能是 127.0.0.1 或 localhost</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">服务器真实的 IP 或 hostname，不能是 127.0.0.1 或 localhost</td>
 </tr>
 <tr>
 <td>user</td>
-<td align="left">否</td>
-<td align="left"></td>
-<td align="left">Mesos framework 使用的用户名称</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">Mesos framework 使用的用户名称</td>
 </tr>
 <tr>
 <td>mesos_url</td>
-<td align="left">是</td>
-<td align="left">zk://127.0.0.1:2181/mesos</td>
-<td align="left">Mesos 所使用的 ZooKeeper 地址</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">zk://127.0.0.1:2181/mesos</td>
+<td style="text-align:left">Mesos 所使用的 ZooKeeper 地址</td>
 </tr>
 <tr>
 <td>zk_servers</td>
-<td align="left">是</td>
-<td align="left">127.0.0.1:2181</td>
-<td align="left">ElasticJob-Cloud 所使用的 ZooKeeper 地址</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">127.0.0.1:2181</td>
+<td style="text-align:left">ElasticJob-Cloud 所使用的 ZooKeeper 地址</td>
 </tr>
 <tr>
 <td>zk_namespace</td>
-<td align="left">否</td>
-<td align="left">elasticjob-cloud</td>
-<td align="left">ElasticJob-Cloud 所使用的 ZooKeeper 命名空间</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">elasticjob-cloud</td>
+<td style="text-align:left">ElasticJob-Cloud 所使用的 ZooKeeper 命名空间</td>
 </tr>
 <tr>
 <td>zk_digest</td>
-<td align="left">否</td>
-<td align="left"></td>
-<td align="left">ElasticJob-Cloud 所使用的 ZooKeeper 登录凭证</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">ElasticJob-Cloud 所使用的 ZooKeeper 登录凭证</td>
 </tr>
 <tr>
 <td>http_port</td>
-<td align="left">是</td>
-<td align="left">8899</td>
-<td align="left">RESTful API 所使用的端口号</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">8899</td>
+<td style="text-align:left">RESTful API 所使用的端口号</td>
 </tr>
 <tr>
 <td>job_state_queue_size</td>
-<td align="left">是</td>
-<td align="left">10000</td>
-<td align="left">堆积作业最大值, 超过此阀值的堆积作业将直接丢弃。阀值过大可能会导致 ZooKeeper 无响应，应根据实测情况调整</td>
+<td style="text-align:left">是</td>
+<td style="text-align:left">10000</td>
+<td style="text-align:left">堆积作业最大值, 超过此阀值的堆积作业将直接丢弃。阀值过大可能会导致 ZooKeeper 无响应，应根据实测情况调整</td>
 </tr>
 <tr>
 <td>event_trace_rdb_driver</td>
-<td align="left">否</td>
-<td align="left"></td>
-<td align="left">作业事件追踪数据库驱动</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">作业事件追踪数据库驱动</td>
 </tr>
 <tr>
 <td>event_trace_rdb_url</td>
-<td align="left">否</td>
-<td align="left"></td>
-<td align="left">作业事件追踪数据库 URL</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">作业事件追踪数据库 URL</td>
 </tr>
 <tr>
 <td>event_trace_rdb_username</td>
-<td align="left">否</td>
-<td align="left"></td>
-<td align="left">作业事件追踪数据库用户名</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">作业事件追踪数据库用户名</td>
 </tr>
 <tr>
 <td>event_trace_rdb_password</td>
-<td align="left">否</td>
-<td align="left"></td>
-<td align="left">作业事件追踪数据库密码</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left"></td>
+<td style="text-align:left">作业事件追踪数据库密码</td>
 </tr>
 <tr>
 <td>auth_username</td>
-<td align="left">否</td>
-<td align="left">root</td>
-<td align="left">API 鉴权用户名</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">root</td>
+<td style="text-align:left">API 鉴权用户名</td>
 </tr>
 <tr>
 <td>auth_password</td>
-<td align="left">否</td>
-<td align="left">pwd</td>
-<td align="left">API 鉴权密码</td>
+<td style="text-align:left">否</td>
+<td style="text-align:left">pwd</td>
+<td style="text-align:left">API 鉴权密码</td>
 </tr>
 </tbody>
 </table>
@@ -3143,17 +3143,17 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/clipboard.min.js?1625550050"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/perfect-scrollbar.min.js?1625550050"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/perfect-scrollbar.jquery.min.js?1625550050"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/jquery.sticky.js?1625550050"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/featherlight.min.js?1625550050"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/html5shiv-printshiv.min.js?1625550050"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/highlight.pack.js?1625550050"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/clipboard.min.js?1628693137"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/perfect-scrollbar.min.js?1628693137"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/perfect-scrollbar.jquery.min.js?1628693137"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/jquery.sticky.js?1628693137"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/featherlight.min.js?1628693137"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/html5shiv-printshiv.min.js?1628693137"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/highlight.pack.js?1628693137"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/modernizr.custom.71422.js?1625550050"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/learn.js?1625550050"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/hugo-learn.js?1625550050"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/modernizr.custom.71422.js?1628693137"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/learn.js?1628693137"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/hugo-learn.js?1628693137"></script>
 
     
 

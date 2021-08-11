@@ -1,66 +1,84 @@
-commit e2f75bf8e1235c2253b30901f9519423d8ca6ccc
+commit a4ef004bc8487c62417d082775d1da2f6519cfa9
 Author: zhaojinchao <33742097+zjcnb@users.noreply.github.com>
-Date:   Thu Jul 8 20:19:47 2021 +0800
+Date:   Wed Aug 11 18:17:26 2021 +0800
 
-    Modify the sharding doc (#11210)
+    Document yml configuration manual adds schemaName configuration item (#11749)
     
-    * load auto generate
+    * document
     
-    * remove import
+    * update
     
-    * modify test
+    * update
     
-    * modify ut
-    
-    * remove pasword
-    
-    * reset password
-    
-    * close statement
-    
-    * add Statement.RETURN_GENERATED_KEYS add ut
-    
-    * modify the document for crate SQLVisitorEngine
-    
-    * format
-    
-    * add mysql parse statement and format sql example
-    
-    * remove oracle dependency
-    
-    * modify example
-    
-    * modify the sharding docment
-    
-    Co-authored-by: zhaojinchao <zhaojinchao@mobimagic.com>
+    * update
 
-diff --git a/docs/document/content/dev-manual/sharding.cn.md b/docs/document/content/dev-manual/sharding.cn.md
-index 74c3cd13fc..8361b81472 100644
---- a/docs/document/content/dev-manual/sharding.cn.md
-+++ b/docs/document/content/dev-manual/sharding.cn.md
-@@ -16,8 +16,8 @@ chapter = true
- | InlineShardingAlgorithm             | 基于行表达式的分片算法      |
- | ModShardingAlgorithm                | 基于取模的分片算法         |
- | HashModShardingAlgorithm            | 基于哈希取模的分片算法      |
--| FixedIntervalShardingAlgorithm      | 基于固定时间范围的分片算法  |
--| MutableIntervalShardingAlgorithm    | 基于可变时间范围的分片算法  |
-+| IntervalShardingAlgorithm           | 基于固定时间范围的分片算法  |
-+| AutoIntervalShardingAlgorithm       | 基于可变时间范围的分片算法  |
- | VolumeBasedRangeShardingAlgorithm   | 基于分片容量的范围分片算法  |
- | BoundaryBasedRangeShardingAlgorithm | 基于分片边界的范围分片算法  |
- | ClassBasedShardingAlgorithm         | 基于自定义类的分片算法      |
-diff --git a/docs/document/content/dev-manual/sharding.en.md b/docs/document/content/dev-manual/sharding.en.md
-index 5e2bc8d072..0d6521e494 100644
---- a/docs/document/content/dev-manual/sharding.en.md
-+++ b/docs/document/content/dev-manual/sharding.en.md
-@@ -16,8 +16,8 @@ chapter = true
- | InlineShardingAlgorithm             | Inline sharding algorithm               |
- | ModShardingAlgorithm                | Modulo sharding algorithm               |
- | HashModShardingAlgorithm            | Hash modulo sharding algorithm          |
--| FixedIntervalShardingAlgorithm      | Fixed interval sharding algorithm       |
--| MutableIntervalShardingAlgorithm    | Mutable interval sharding algorithm     |
-+| IntervalShardingAlgorithm           | Fixed interval sharding algorithm       |
-+| AutoIntervalShardingAlgorithm       | Mutable interval sharding algorithm     |
- | VolumeBasedRangeShardingAlgorithm   | Volume based range sharding algorithm   |
- | BoundaryBasedRangeShardingAlgorithm | Boundary based range sharding algorithm |
- | ClassBasedShardingAlgorithm         | Class based sharding algorithm          |
+diff --git a/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/_index.cn.md b/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/_index.cn.md
+index a16aea7..162bc3d 100644
+--- a/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/_index.cn.md
++++ b/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/_index.cn.md
+@@ -57,6 +57,18 @@ try (
+ 
+ ## YAML 配置项
+ 
++### schemaName配置
++
++该参数为可选项，不配置则默认采用logic_db作为schemaName。 
++schemaName可理解为数据库中的schema，JDBC中的datasource的别名
++通过该参数与治理模块可实现JDBC与PROXY同时在线，共享配置。
++
++##### 配置示例
++
++```yaml
++schemaName: sharding_db
++```
++
+ ### 数据源配置
+ 
+ 分为单数据源配置和多数据源配置。
+diff --git a/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/_index.en.md b/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/_index.en.md
+index a12e2a2..65165cd 100644
+--- a/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/_index.en.md
++++ b/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/_index.en.md
+@@ -59,6 +59,18 @@ try (
+ 
+ ## YAML Configuration Item
+ 
++### schemaName Configuration
++
++This parameter is optional. If it is not configured, logic_db is used as the schemaName by default.
++schemaName can be understood as the schema in the database, the alias of the datasource in JDBC
++Through this parameter and the management module, JDBC and PROXY can be online at the same time, and the configuration can be shared.
++
++##### Configuration Example
++
++```yaml
++schemaName: sharding_db
++```
++
+ ### Data Source Configuration
+ 
+ It is divided into single data source configuration and multi data source configuration.
+diff --git a/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/governance.cn.md b/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/governance.cn.md
+index 9c19a30..b9d5a33 100644
+--- a/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/governance.cn.md
++++ b/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/governance.cn.md
+@@ -8,6 +8,7 @@ weight = 5
+ ### 治理
+ 
+ ```yaml
++schemaName: #该参数为可选项，不配置则默认采用logic_db作为schemaName。通过该参数与治理模块可实现JDBC与PROXY同时在线
+ governance:
+   registryCenter: # 注册中心
+     type: # 治理持久化类型。如：Zookeeper, etcd
+diff --git a/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/governance.en.md b/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/governance.en.md
+index 2a6c1fc..882f389 100644
+--- a/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/governance.en.md
++++ b/docs/document/content/user-manual/shardingsphere-jdbc/configuration/yaml/governance.en.md
+@@ -8,6 +8,7 @@ weight = 5
+ ### Management
+ 
+ ```yaml
++schemaName: #Optional. If it is not configured, logic_db is used as the schemaName by default. Through this parameter and management module, JDBC and PROXY can be online at the same time
+ governance:
+   registryCenter: # Registry center
+     type: # Governance instance type. Example:Zookeeper, etcd

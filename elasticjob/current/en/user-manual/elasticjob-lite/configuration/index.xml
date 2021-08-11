@@ -5,11 +5,7 @@
     <link>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/elasticjob-lite/configuration/</link>
     <description>Recent content in Configuration on ElasticJob</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/elasticjob-lite/configuration/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/elasticjob-lite/configuration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java API</title>
       <link>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/elasticjob-lite/configuration/java-api/</link>
@@ -35,7 +31,7 @@ YAML
 elasticjob: regCenter: serverLists: localhost:6181 namespace: elasticjob-lite-springboot Properties
 elasticjob.reg-center.namespace=elasticjob-lite-springboot elasticjob.reg-center.server-lists=localhost:6181 Job Configuration Prefix: elasticjob.jobs
 Configuration:
-   Property name Required     elasticJobClass / elasticJobType Yes   cron No   jobBootstrapBeanName No   sharding-total-count Yes   sharding-item-parameters No   job-parameter No   monitor-execution No   failover No   misfire No   max-time-diff-seconds No   reconcile-interval-minutes No   job-sharding-strategy-type No   job-executor-service-handler-type No   job-error-handler-type No   job-listener-types No   description No   props No   disabled No   overwrite No    &amp;ldquo;elasticJobClass&amp;rdquo; and &amp;ldquo;elasticJobType&amp;rdquo; are mutually exclusive.</description>
+   Property name Required     elasticJobClass / elasticJobType Yes   cron No   timeZone No   jobBootstrapBeanName No   sharding-total-count Yes   sharding-item-parameters No   job-parameter No   monitor-execution No   failover No   misfire No   max-time-diff-seconds No   reconcile-interval-minutes No   job-sharding-strategy-type No   job-executor-service-handler-type No   job-error-handler-type No   job-listener-types No   description No   props No   disabled No   overwrite No    &amp;ldquo;elasticJobClass&amp;rdquo; and &amp;ldquo;elasticJobType&amp;rdquo; are mutually exclusive.</description>
     </item>
     
     <item>

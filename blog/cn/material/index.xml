@@ -5,11 +5,7 @@
     <link>https://shardingsphere.apache.org/blog/cn/material/</link>
     <description>Recent content in 博文选集 on ShardingSphere - 博客</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://shardingsphere.apache.org/blog/cn/material/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://shardingsphere.apache.org/blog/cn/material/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>揭秘Sharding-Proxy——面向DBA的数据库中间层</title>
       <link>https://shardingsphere.apache.org/blog/cn/material/proxy/</link>
@@ -153,8 +149,8 @@ Sharding-Sphere的分页功能比较容易让使用者误解，用户通常认�
 传说鱼的记忆只有7秒钟。前段时间刚把这个模块的代码抒写整理完，趁着我还没有失忆之前，先为大家叙述一二，愿对各位看官有所帮助。
 「剖析Sharding-Sphere系列文章」是由Sharding-Sphere的核心开发成员亲自操刀向大家介绍和剖析Sharding-Sphere的核心模块、所使用的前沿技术、有价值的经验总结等。这一系列的文章将带您走进Sharding-Sphere的内核世界，获得新知、激发灵感。更希望您关注我们，共同交流切磋，一同前行。
 作者介绍 潘娟，京东金融运维DBA，主要负责京东金融生产数据库运维及数据库平台、中间件开发工作。多次参与京东金融6.18、11.11大促活动的护航工作。曾负责京东金融数据库自动化平台设计与开发项目，现专注于Sharding-Sphere分布式数据库中间件开发。乐于在数据库、自动化、分布式、中间件等相关领域进行学习和探索。
-概念介绍 Q: 什么叫&amp;quot;自动化执行引擎&amp;rdquo;？
-A: 一条SQL的生命周期是：从客户端发起、经过Sharding-Sphere处理、再到底层数据库执行消化。而在Sharding-Sphere里过程则是：SQL解析&amp;ndash;&amp;gt;SQL优化&amp;ndash;&amp;gt;SQL路由&amp;ndash;&amp;gt;SQL改写&amp;ndash;&amp;gt;SQL执行&amp;ndash;&amp;gt;结果归并。自动化执行引擎是为了处理SQL执行问题的，即将路由改写后的真实SQL如何有控制且高效地传送到底层数据库执行。那么直接通过JDBC发送SQL至数据库执行难道行不通吗？还有其他需要考虑吗？答案是：肯定有其他考虑，否则我就不用写这篇文章了。这就体现在它的&amp;quot;自动化&amp;quot;上了。所谓&amp;quot;自动化&amp;rdquo;，其实是为了平衡数据库连接创建与结果归并模式选择问题，为了平衡资源控制与执行效率问题。
+概念介绍 Q: 什么叫&amp;quot;自动化执行引擎&amp;quot;？
+A: 一条SQL的生命周期是：从客户端发起、经过Sharding-Sphere处理、再到底层数据库执行消化。而在Sharding-Sphere里过程则是：SQL解析&amp;ndash;&amp;gt;SQL优化&amp;ndash;&amp;gt;SQL路由&amp;ndash;&amp;gt;SQL改写&amp;ndash;&amp;gt;SQL执行&amp;ndash;&amp;gt;结果归并。自动化执行引擎是为了处理SQL执行问题的，即将路由改写后的真实SQL如何有控制且高效地传送到底层数据库执行。那么直接通过JDBC发送SQL至数据库执行难道行不通吗？还有其他需要考虑吗？答案是：肯定有其他考虑，否则我就不用写这篇文章了。这就体现在它的&amp;quot;自动化&amp;quot;上了。所谓&amp;quot;自动化&amp;quot;，其实是为了平衡数据库连接创建与结果归并模式选择问题，为了平衡资源控制与执行效率问题。
 需求场景 Q: 为何需要自动化执行引擎呢？
 A: 在概念介绍部分，我们介绍了主角-自动化执行引擎。也谈到它的自动化是为了平衡数据库连接创建以及结果归并模式选择问题。这是它诞生的宿命，历史的选择。下面将为大家介绍这两个需要平衡的问题：
 1.数据库连接创建
@@ -420,6 +416,42 @@ SphereEx co-founder, Apache member, Apache ShardingSphere PMC, Apache brpc(Incub
  作为 Apache 的顶级项目，ShardingSphere 的 Release 要经过社区验证、投票、发布等环节，保证推出的版本符合 License 及 Apache Release 规范，且功能及项目层面尽可能符合预期，这是对项目本身及使用者的保护。当前版本已完成基本构建，预计本周内正式发行。
 本次 Release 将会带来以下重要特性： 1. 亮点功能 全新定义的分布式数据库操作语言—DistSQL SQL 是一种用于存取数据以及查询、更新和管理关系数据库系统的数据库查询和程序设计语言。1986 年 10 月，美国国家标准学会将 SQL 作为关系式数据库管理系统的标准语言。现有通用数据库系统在其实践过程中都对 SQL 规范作了部分改写和扩充，具有更高灵活性和更丰富的功能，使其适用于自身的数据库系统。
 DistSQL（Distributed SQL）是 Apache ShardingSphere 提出的，特有的一种内置 SQL 语言，能够提供标准 SQL 之外的增量功能操作能力。DistSQL 让用户可以像操作数据库一样操作 ShardingSphere，使其从面向开发人员的框架和中间件转变为面向运维人员的基础设施产品。</description>
+    </item>
+    
+    <item>
+      <title>为什么要参与到开源社区中？</title>
+      <link>https://shardingsphere.apache.org/blog/cn/material/open_source_community/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/blog/cn/material/open_source_community/</guid>
+      <description>你无法想象开源项目离你有多近。它早已融入你生活的方方面面，从办公室到家里，从健身房到餐厅等等。
+俗话说：&amp;ldquo;开源项目属于我们，而不是我&amp;rdquo;，这就解释了为什么这些项目很受欢迎，以至于连知名的商业巨头都将开源计划纳入他们的商业计划。但是对于普通人来说，到底是否有必要又是否有可能加入开源社区呢？它的魅力何在？
+在这篇文章中，我将通过介绍优点和缺点来回答这些问题。我们都知道，奖励比惩罚更好，那我们就先从奖励开始说起。
+1. 掌握一项新技能 你是否厌倦了每天疏远和重复的工作？你是否想学习新的、令人兴奋的、有价值的技能？
+在线课程（MOOCs）或书籍绝对是提高你的技能和扩展你的知识的好方法。然而，我想推荐另一种高效，有趣的方法，那就是加入相关的开源社区，在生产环境中解决实际问题的同时学习新技能。这些活跃的开源项目之所以如此受欢迎，是因为它们帮助用户解决实际问题并满足他们的需求。通过参与开源社区，你学习到的是真正能解决现实生产上的实战知识，而不是书本上的条条框框与课本理论。
+让我们以 Apache ShardingSphere 为例。Apache ShardingSphere 受到了全世界编码员和学生的赞赏。以现有的社区数据为参考，即 14K+ 的 GitStars ，近 5K 的 fork ， GitHub 上近 250 个贡献者，以及 160+ 的真实用例场景，基于这些数据，任何人都会得出这个结论。更重要的是，它也是 Google Summer of Code 2021 、 Summer 2021 和 Open source Day 2021 的合作项目。
+它的功能，如分片、数据加密、数据扩展、分布式加载测试的影子数据库等，都是出于解决大数据数据场景、分布式数据库和高并发性的真实行业需求而产生的。换句话说，人们选择它是为了解决他们的生产问题，并有机会将意见和优化再回馈到社区。这种前后呼应的模式使得这个社区变得活跃、多样化并且可以蓬勃发展。
+2. 就业机会 如今，人力资源部门和招聘经理经常对候选人的资料和个人或职业发展项目进行筛选，因为他们认为这是一种实用和有效的方法，可以挑选出最佳候选人。从雇主的角度来看，这些做法是合理的。如果与传统的纸质简历相比，GitHub 可以更详尽地介绍你的资历、经验、技能，甚至个性。如果你参与的开源项目，在生产环境中被广泛使用，或者有同行业开发的解决方案，那么你在就业市场上就会非常具有吸引力，获得更好的机会。
+如果你时常因为内卷或 30 岁求职而焦虑，那现在你将有新的应对之策。于是，当你获得了新发现的市场对你的技能和专业形象的赞赏的时候，你的自信心就会瞬间被提升了。
+我听过很多这样的故事，Apache ShardingSphere 的 contributors 和 committers 收到了 HR 的面试电话，因为考虑到他们在开源社区的持续贡献和互动。此外，SphereEx 正在积极招募对分布式数据库中间件垂直领域的全职开源事业感兴趣的人才，以及 Java 开发人员。请务必在这里查看可用的机会。
+3. 兴趣 &amp;ldquo;Yep, I did it just for fun&amp;rdquo;，这是我从我们的 contributors 和 committers 那里听到的另一个原因。我在开源社区所做的事情与我的工作无关，但这是我的爱好，我想参与到社区中去，与他人交流思想。这就是我在这里的原因，就是这样一个简单而又有说服力的答案。一个简单的事实是，尽管我们以利益驱动的心态来处理我们职业生活中的大部分问题，但我们可能会发现，我们在做这些事情时并没有把我们的 &amp;ldquo;真心和灵魂 &amp;ldquo;放在里面。找到属于你的激情或者副业可以让你重新发现自己，并且把这种积极的能量能带到你喜欢的事情上，这也会为你带来巨大的满足感，从而形成一个自我实现的循环。</description>
+    </item>
+    
+    <item>
+      <title>DistSQL：像数据库一样使用 Apache ShardingSphere</title>
+      <link>https://shardingsphere.apache.org/blog/cn/material/jul_26_an_introduction_to_distsql/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/blog/cn/material/jul_26_an_introduction_to_distsql/</guid>
+      <description>Apache ShardingSphere 5.0.0-beta 深度解析的第一篇文章和大家一起重温了 ShardingSphere 的内核原理，并详细阐述了此版本在内核层面，特别是 SQL 能力方面的优化和提升。强大稳定的内核是 ShardingSphere 持续发展的基础，与此同时，ShardingSphere 在研发分布式数据库生态特性上也在努力摸索。本次 5.0.0-beta 版本发布的 DistSQL，用于搭配整个 ShardingSphere 分布式数据库体系，在提供更标准化的分布式数据库管理方式的同时，兼具灵活、便捷和优雅的特性。
+本文将带领大家全面认识 DistSQL，并结合实战案例展示如何使用 DistSQL 一键管理 ShardingSphere 分布式数据库服务。
+作者｜孟浩然
+SphereEx 高级 Java 工程师
+Apache ShardingSphere Committer
+曾就职于京东科技，负责数据库产品研发，热爱开源，关注数据库生态，目前专注于 ShardingSphere 数据库中间件开发以及开源社区建设。
+初识 DistSQL 相信大家对 SQL（Structured Query Language）都不陌生，SQL 是一种数据查询和程序设计语言，同时作为关系数据库管理系统的标准语言，用于存取数据以及查询、更新和管理关系数据库系统。
+和标准 SQL 类似，DistSQL（Distributed SQL），即分布式 SQL，是 ShardingSphere 特有的一种内置 SQL 语言，能够提供标准 SQL 之外的增量功能操作能力。借助于 ShardingSphere 强大的 SQL 解析引擎，DistSQL 提供了类似于标准 SQL 的语法结构和语法校验体系，在保证规范化的同时，也让 DistSQL 更加灵活。
+ShardingSphere 提出的 Database Plus 理念，旨在打造兼具数据库且贴合实际业务需求的开源分布式数据库体系，而 DistSQL 正是在传统数据库上层构建，提供既贴合标准又拥有 ShardingSphere 功能特色的 SQL 能力，能更好的为传统数据库赋能。</description>
     </item>
     
   </channel>

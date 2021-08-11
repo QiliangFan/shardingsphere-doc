@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://shardingsphere.apache.org/blog/en/material/</loc>
     <xhtml:link
@@ -14,9 +13,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/proxy/</loc>
     <xhtml:link
                 rel="alternate"
@@ -28,9 +25,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/proxy/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/videos/opengauss/</loc>
     <xhtml:link
                 rel="alternate"
@@ -42,9 +37,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/videos/opengauss/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/videos/opensource/</loc>
     <xhtml:link
                 rel="alternate"
@@ -56,9 +49,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/videos/opensource/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/realization/</loc>
     <xhtml:link
                 rel="alternate"
@@ -70,9 +61,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/realization/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/videos/</loc>
     <xhtml:link
                 rel="alternate"
@@ -84,9 +73,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/videos/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/videos/build/</loc>
     <xhtml:link
                 rel="alternate"
@@ -98,9 +85,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/videos/build/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/result/</loc>
     <xhtml:link
                 rel="alternate"
@@ -112,9 +97,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/result/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/videos/new_sql/</loc>
     <xhtml:link
                 rel="alternate"
@@ -126,9 +109,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/videos/new_sql/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/engine/</loc>
     <xhtml:link
                 rel="alternate"
@@ -140,9 +121,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/engine/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/videos/evolution/</loc>
     <xhtml:link
                 rel="alternate"
@@ -154,9 +133,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/videos/evolution/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/committer/</loc>
     <xhtml:link
                 rel="alternate"
@@ -168,9 +145,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/committer/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/videos/ecosystem/</loc>
     <xhtml:link
                 rel="alternate"
@@ -182,9 +157,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/videos/ecosystem/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/solution/</loc>
     <xhtml:link
                 rel="alternate"
@@ -196,9 +169,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/solution/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/videos/newfeature/</loc>
     <xhtml:link
                 rel="alternate"
@@ -210,9 +181,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/videos/newfeature/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/seata/</loc>
     <xhtml:link
                 rel="alternate"
@@ -224,9 +193,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/seata/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/cncf/</loc>
     <xhtml:link
                 rel="alternate"
@@ -238,9 +205,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/cncf/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/community/</loc>
     <xhtml:link
                 rel="alternate"
@@ -252,9 +217,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/community/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/database/</loc>
     <xhtml:link
                 rel="alternate"
@@ -266,9 +229,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/database/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/graduate/</loc>
     <xhtml:link
                 rel="alternate"
@@ -280,9 +241,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/graduate/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/elasticjob/</loc>
     <xhtml:link
                 rel="alternate"
@@ -294,9 +253,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/elasticjob/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/alpha/</loc>
     <xhtml:link
                 rel="alternate"
@@ -308,9 +265,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/alpha/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/material/ss_5.0.0beta/</loc>
     <xhtml:link
                 rel="alternate"
@@ -322,9 +277,31 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/material/ss_5.0.0beta/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://shardingsphere.apache.org/blog/en/material/open_source_community/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/blog/cn/material/open_source_community/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/blog/en/material/open_source_community/"
+                />
+  </url><url>
+    <loc>https://shardingsphere.apache.org/blog/en/material/jul_26_an_introduction_to_distsql/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/blog/cn/material/jul_26_an_introduction_to_distsql/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/blog/en/material/jul_26_an_introduction_to_distsql/"
+                />
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -336,9 +313,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/</loc>
     <xhtml:link
                 rel="alternate"
@@ -350,9 +325,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/blog/en/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/blog/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -365,5 +338,4 @@
                 href="https://shardingsphere.apache.org/blog/en/tags/"
                 />
   </url>
-  
 </urlset>

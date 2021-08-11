@@ -81,7 +81,7 @@ export TZ="Asia/Shanghai"
 echo "[1] ====>>>> process shardingsphere/docs"
 echo git clone https://github.com/apache/shardingsphere
 
-git clone https://github.com/apache/shardingsphere _shardingsphere 
+git clone https://github.com.cnpmjs.org/apache/shardingsphere _shardingsphere 
 
 # ------------------------- build history docs --------------------------------------
 cd _shardingsphere

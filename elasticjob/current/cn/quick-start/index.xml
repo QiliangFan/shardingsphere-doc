@@ -5,11 +5,7 @@
     <link>https://shardingsphere.apache.org/elasticjob/current/cn/quick-start/</link>
     <description>Recent content in 快速入门 on ElasticJob</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://shardingsphere.apache.org/elasticjob/current/cn/quick-start/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://shardingsphere.apache.org/elasticjob/current/cn/quick-start/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ElasticJob-Lite</title>
       <link>https://shardingsphere.apache.org/elasticjob/current/cn/quick-start/elasticjob-lite/</link>
