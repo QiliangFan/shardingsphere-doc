@@ -17,9 +17,7 @@
 
 set -e  # exit scripts when errors occurred
 script_path=$(cd `dirname $0`;pwd)
-echo $script_path
 root=`pwd` && cd $root
-echo Root: $root
 
 # codes reuse
 build_docs(){
@@ -34,7 +32,6 @@ build_docs(){
   git checkout $2
   if [ ! -d $1 ] ; then
     echo No avaiable docuemnts to build...
-    echo PWD: `pwd`
     return 0
   fi
 
@@ -45,25 +42,17 @@ build_docs(){
   fi
 
   echo modify config file $1/document/config.toml...
-  if [ $2 == "master" ] ; then
-    dst_dir=$root/document/master
-    sed -i "s/\/document\/current/\/document\/master/g" $1/document/config.toml
-    if [ -d $dst_dir ] ; then
-      rm -rf $dst_dir/*
-    fi 
+  dst_dir=$root/document/$2
+  sed -i "s/\/document\/current/\/document\/$2/g" $1/document/config.toml
+  sed -i "s/\/master\//\/$2\//g" $1/document/config.toml
+  if [ -d $dst_dir ] ; then
+    git stash
+    return 0  # nothing to do
   else
-    dst_dir=$root/document/legacy/$2
-    sed -i "s/\/document\/current/\/document\/legacy\/$2/g" $1/document/config.toml
-    sed -i "s/\/master\//\/$2\//g" $1/document/config.toml
-    if [ -d $dst_dir ] ; then
-      git stash
-      return 0  # nothing to do
-    else
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/en\/overview"\n                  target="_blank">'$2'<\/a>/g' $root/index.html
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/en\/overview"\n              target="_blank">'$2'<\/a>/g' $root/index_m.html
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/cn\/overview"\n                  target="_blank">'$2'<\/a>/g' $root/index_zh.html
-        sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/legacy\/'$2'\/cn\/overview"\n              target="_blank">'$2'<\/a>/g' $root/index_m_zh.html
-    fi
+      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$2'\/en\/overview"\n                  target="_blank">'$2'<\/a>/g' $root/index.html
+      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$2'\/en\/overview"\n              target="_blank">'$2'<\/a>/g' $root/index_m.html
+      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$2'\/cn\/overview"\n                  target="_blank">'$2'<\/a>/g' $root/index_zh.html
+      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$2'\/cn\/overview"\n              target="_blank">'$2'<\/a>/g' $root/index_m_zh.html
   fi
 
   sh $1/build.sh
@@ -74,7 +63,6 @@ build_docs(){
     mkdir -p $dst_dir
   fi
   
-  echo PWD `pwd`
   echo CP from $src_dir to $dst_dir
   cp -rf $src_dir/* $dst_dir/
   rm -rf $src_dir
@@ -106,10 +94,10 @@ git clone https://github.com/apache/shardingsphere _shardingsphere
 cd $root/_shardingsphere
 for v in {1..100}
 do
-  TAGS=`git tag --sort=taggerdate -l $v'.*.*'`
+  TAGS=(`git tag --sort=taggerdate -l 'v'$v'.*.*'` `git tag --sort=taggerdate -l $v'.*.*'`)
   echo ${TAGS[@]}
   if [ ${#TAGS} -gt 0 ] ; then
-    for tag in `python3 $root/.github/scripts/filter_tag.py --tags ${TAGS[@]}`
+    for tag in ${TAGS[@]}
     do
       echo Get the tag: $tag
       echo build docs : [ $tag ]
@@ -145,10 +133,26 @@ else
     rm -rf old_version_ss
     mv _shardingsphere/new_version_ss ./old_version_ss
     
-    echo build docs : [ master ]
-    mkdir sstarget
-    build_docs _shardingsphere/docs master sstarget
-    cd $root
+    cp -rf _shardingsphere/docs ./
+    rm -rf _shardingsphere
+    mv docs ssdocs
+    
+    echo build hugo ss documents
+    sh ./ssdocs/build.sh
+    cp -rf ssdocs/target ./
+    rm -rf ssdocs
+    mv target sstarget
+    
+    echo replace old files
+    # Overwrite HTLM files
+    echo copy document/current to dest dir
+    if [ ! -d "document/current"  ];then
+      mkdir -p document/current
+    else
+      echo document/current  exist
+      rm -rf document/current/*
+    fi
+    cp -fr sstarget/document/current/* document/current
     
     echo copy community to dest dir
     if [ ! -d "community"  ];then
@@ -164,9 +168,11 @@ else
       mkdir -p blog
     else
       echo blog  exist
-      rm -rf blog/*
+      rm -rf iblog/*
     fi
     cp -fr sstarget/blog/* blog
+    
+    rm -rf sstarget
 fi
 rm -rf $root/sstarget
 rm -rf $root/_shardingsphere
