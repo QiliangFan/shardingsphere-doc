@@ -51,7 +51,6 @@ build_docs(){
 
   sh docs/build.sh
   src_dir=docs/target/document/current
-  cd ..
   find $src_dir -name '*.html' -exec sed -i -e 's|<option id="\([a-zA-Z]\+\)" value="/document/current|<option id="\1" value="/document/'$1'|g' {} \;
 
   if [ ! -d $dst_dir ] ; then
