@@ -16,15 +16,13 @@
 #
 
 set -e  # exit scripts when errors occurred
-script_path=$(cd `dirname $0`;pwd)
 root=`pwd` && cd $root
 
 # codes reuse
 build_docs(){
-  # $1: source_dir wich contains build.sh
-  # $2: branch or tag
+  # $1: branch or tag
 
-  git checkout $2
+  git checkout $1
   if [ ! -d $1 ] ; then
     echo No avaiable docuemnts to build...
     return 0
@@ -36,22 +34,26 @@ build_docs(){
     return 0
   fi
 
-  echo modify config file $1/document/config.toml...
-  dst_dir=$root/document/$2
-  sed -i "s/\/document\/current/\/document\/$2/g" $1/document/config.toml
-  sed -i "s/\/master\//\/$2\//g" $1/document/config.toml
+  echo modify config file docs/document/config.toml...
+  dst_dir=../document/$1
+  sed -i "s/\/document\/current/\/document\/$1/g" docs/document/config.toml
+  sed -i "/editURL/d" docs/document/config.toml
   if [ -d $dst_dir ] ; then
     git reset --hard HEAD
     return 0  # nothing to do
   else
-      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$2'\/en\/overview"\n                  target="_blank">'$2'<\/a>/g' $root/index.html
-      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$2'\/en\/overview"\n              target="_blank">'$2'<\/a>/g' $root/index_m.html
-      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$2'\/cn\/overview"\n                  target="_blank">'$2'<\/a>/g' $root/index_zh.html
-      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$2'\/cn\/overview"\n              target="_blank">'$2'<\/a>/g' $root/index_m_zh.html
+      cd ..
+      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$1'\/en\/overview"\n                  target="_blank">'$1'<\/a>/g' index.html
+      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$1'\/en\/overview"\n              target="_blank">'$1'<\/a>/g' index_m.html
+      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n                <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$1'\/cn\/overview"\n                  target="_blank">'$1'<\/a>/g' index_zh.html
+      sed -i -r 's/(<!--AUTO-DEPLOY-DOC-->)/\1\n            <a class="i-drop-list" href="https:\/\/shardingsphere.apache.org\/document\/'$1'\/cn\/overview"\n              target="_blank">'$1'<\/a>/g' index_m_zh.html
+      cd _shardingsphere
   fi
 
-  sh $1/build.sh
-  src_dir=$1/target/document/current
+  sh docs/build.sh
+  src_dir=docs/target/document/current
+  cd ..
+  find $src_dir -name '*.html' -exec sed -i -e 's|<option id="\([a-zA-Z]\+\)" value="/document/current|<option id="\1" value="/document/'$1'|g' {} \;
 
   if [ ! -d $dst_dir ] ; then
     echo mkdir $dst_dir
@@ -62,7 +64,6 @@ build_docs(){
   cp -rf $src_dir/* $dst_dir/
   rm -rf $src_dir
 
-  cd $root/_shardingsphere
   git reset --hard HEAD
   return 0
 }
@@ -84,25 +85,21 @@ echo git clone https://github.com/apache/shardingsphere
 git clone https://github.com/apache/shardingsphere _shardingsphere 
 
 # ------------------------- build history docs --------------------------------------
-for v in {1..100}
-do
-  cd $root/_shardingsphere
-  TAGS=(`git tag --sort=taggerdate -l 'v'$v'.*.*'` `git tag --sort=taggerdate -l $v'.*.*'`)
-  echo ${TAGS[@]}
-  if [ ${#TAGS} -gt 0 ] ; then
-    for tag in ${TAGS[@]}
-    do
-      echo Get the tag: $tag
-      echo build docs : [ $tag ]
-      build_docs $root/_shardingsphere/docs $tag ;
+cd _shardingsphere
+TAGS=(`git tag --sort=taggerdate -l '*.*.*'`)
+echo ${TAGS[@]}
+if [ ${#TAGS} -gt 0 ] ; then
+  for tag in ${TAGS[@]}
+  do
+    echo Get the tag: $tag
+    echo build docs : [ $tag ]
+    build_docs $tag ;
+  done
+fi
 
-      cd $root/_shardingsphere
-    done
-  fi
-done
 cd $root
 git add .
-git commit -m "build document with tag $2" > /dev/null
+git commit -m "build document..." > /dev/null
 git push
 
 # -----------------------------------------------------------------------------------
