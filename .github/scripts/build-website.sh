@@ -22,12 +22,12 @@ build_docs(){
   # $1: branch or tag
 
   git checkout $1
-  if [ ! -d $1 ] ; then
+  if [ ! -d docs ] ; then
     echo No avaiable docuemnts to build...
     return 0
   fi
 
-  if ! [ -d $1/document -a -f $1/document/config.toml  ] ; then
+  if ! [ -d docs/document -a -f docs/document/config.toml  ] ; then
     echo No avaiable docuemnts to build...
     echo PWD: `pwd`
     return 0
