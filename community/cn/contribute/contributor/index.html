@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta http-equiv="Cache-Control" content="max-age=7200" />
-    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="generator" content="Hugo 0.88.0" />
     <meta name="description" content="">
-    <meta name="buildDate" content="2021-09-02 23:05:47">
+    <meta name="buildDate" content="2021-09-05 16:08:34">
 
 
     <link rel="shortcut icon" href="https://shardingsphere.apache.org/document/current/img/favicon.png" type="image/x-icon" />
@@ -14,19 +14,19 @@
     <title>贡献者指南 :: ShardingSphere</title>
     
     
-    <link href="https://shardingsphere.apache.org/community/css/nucleus.css?1630595147" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/community/css/font-awesome.min.css?1630595147" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/community/css/hybrid.css?1630595147" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/community/css/featherlight.min.css?1630595147" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/community/css/perfect-scrollbar.min.css?1630595147" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/community/css/auto-complete.css?1630595147" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/community/css/theme.css?1630595147" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/community/css/hugo-theme.css?1630595147" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/community/css/nucleus.css?1630829314" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/community/css/font-awesome.min.css?1630829314" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/community/css/hybrid.css?1630829314" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/community/css/featherlight.min.css?1630829314" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/community/css/perfect-scrollbar.min.css?1630829314" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/community/css/auto-complete.css?1630829314" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/community/css/theme.css?1630829314" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/community/css/hugo-theme.css?1630829314" rel="stylesheet">
     
-      <link href="https://shardingsphere.apache.org/community/css/theme-black.css?1630595147" rel="stylesheet">
+      <link href="https://shardingsphere.apache.org/community/css/theme-black.css?1630829314" rel="stylesheet">
     
 
-    <script src="https://shardingsphere.apache.org/community/js/jquery-2.x.min.js?1630595147"></script>
+    <script src="https://shardingsphere.apache.org/community/js/jquery-2.x.min.js?1630829314"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -37,7 +37,7 @@
     
 
   </head>
-  <body class="" data-url="/cn/contribute/contributor/">
+  <body class="" data-url="https://shardingsphere.apache.org/community/cn/contribute/contributor/">
     <nav id="sidebar" class="">
 
 
@@ -89,25 +89,6 @@
       <li data-nav-id="/cn/contribute/subscribe/" title="订阅指南" class="dd-item ">
         <a href="https://shardingsphere.apache.org/community/cn/contribute/subscribe/">
         订阅指南
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/cn/contribute/establish-project/" title="搭建项目及环境指南" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/community/cn/contribute/establish-project/">
-        搭建项目及环境指南
         
         </a>
     </li>
@@ -568,7 +549,7 @@
 <ul>
 <li>从shardingsphere的repo上fork一个分支到您自己的repo来开始工作，并设置upstream为shardingsphere的repo。</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote add upstream https://github.com/apache/shardingsphere.git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git remote add upstream https://github.com/apache/shardingsphere.git
 </code></pre></div><p><strong>2. 选择issue</strong></p>
 <ul>
 <li>请在选择您要修改的issue。如果是您新发现的问题或想提供issue中没有的功能增强，请先新建一个issue并设置正确的标签。</li>
@@ -579,7 +560,7 @@
 <ul>
 <li>切换到fork的master分支，拉取最新代码，创建本次的分支。</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout master
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout master
 git pull upstream master
 git checkout -b issueNo
 </code></pre></div><p><strong>注意</strong> ：PR会按照squash的方式进行merge，如果不创建新分支，本地和远程的提交记录将不能保持同步。</p>
@@ -588,7 +569,7 @@ git checkout -b issueNo
 <li>请您在开发过程中遵循ShardingSphere的<a href="https://shardingsphere.apache.org/community/cn/contribute/code-conduct/">开发规范</a>。并在准备提交pull request之前完成相应的检查。</li>
 <li>将修改的代码push到fork库的分支上。</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git add 修改代码
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git add 修改代码
 git commit -m <span style="color:#e6db74">&#39;commit log&#39;</span>
 git push origin issueNo
 </code></pre></div><p><strong>5. 提交PR</strong></p>
@@ -601,11 +582,11 @@ git push origin issueNo
 <ul>
 <li>在导师将pull request合并到ShardingSphere的master分支中之后，您就可以将远程的分支（origin/issueNo）及与远程分支（origin/issueNo）关联的本地分支（issueNo）删除。</li>
 </ul>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout master
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git checkout master
 git branch -d issueNo
 git push origin --delete issueNo
 </code></pre></div><p><strong>注意</strong>: 为了让您的id显示在contributor列表中，别忘了以下设置：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git config --global user.name <span style="color:#e6db74">&#34;username&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">git config --global user.name <span style="color:#e6db74">&#34;username&#34;</span>
 git config --global user.email <span style="color:#e6db74">&#34;username@mail.com&#34;</span>
 </code></pre></div>
 
@@ -680,22 +661,6 @@ git config --global user.email <span style="color:#e6db74">&#34;username@mail.co
             
                 
                     
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                     
                 
                 
@@ -945,7 +910,7 @@ git config --global user.email <span style="color:#e6db74">&#34;username@mail.co
 
 
         
-            <a class="nav nav-prev" href="https://shardingsphere.apache.org/community/cn/contribute/establish-project/" title="搭建项目及环境指南"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="https://shardingsphere.apache.org/community/cn/contribute/subscribe/" title="订阅指南"> <i class="fa fa-chevron-left"></i></a>
         
         
             <a class="nav nav-next" href="https://shardingsphere.apache.org/community/cn/contribute/committer/" title="提交者指南" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -957,17 +922,17 @@ git config --global user.email <span style="color:#e6db74">&#34;username@mail.co
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://shardingsphere.apache.org/community/js/clipboard.min.js?1630595147"></script>
-    <script src="https://shardingsphere.apache.org/community/js/perfect-scrollbar.min.js?1630595147"></script>
-    <script src="https://shardingsphere.apache.org/community/js/perfect-scrollbar.jquery.min.js?1630595147"></script>
-    <script src="https://shardingsphere.apache.org/community/js/jquery.sticky.js?1630595147"></script>
-    <script src="https://shardingsphere.apache.org/community/js/featherlight.min.js?1630595147"></script>
-    <script src="https://shardingsphere.apache.org/community/js/html5shiv-printshiv.min.js?1630595147"></script>
-    <script src="https://shardingsphere.apache.org/community/js/highlight.pack.js?1630595147"></script>
+    <script src="https://shardingsphere.apache.org/community/js/clipboard.min.js?1630829314"></script>
+    <script src="https://shardingsphere.apache.org/community/js/perfect-scrollbar.min.js?1630829314"></script>
+    <script src="https://shardingsphere.apache.org/community/js/perfect-scrollbar.jquery.min.js?1630829314"></script>
+    <script src="https://shardingsphere.apache.org/community/js/jquery.sticky.js?1630829314"></script>
+    <script src="https://shardingsphere.apache.org/community/js/featherlight.min.js?1630829314"></script>
+    <script src="https://shardingsphere.apache.org/community/js/html5shiv-printshiv.min.js?1630829314"></script>
+    <script src="https://shardingsphere.apache.org/community/js/highlight.pack.js?1630829314"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://shardingsphere.apache.org/community/js/modernizr.custom.71422.js?1630595147"></script>
-    <script src="https://shardingsphere.apache.org/community/js/learn.js?1630595147"></script>
-    <script src="https://shardingsphere.apache.org/community/js/hugo-learn.js?1630595147"></script>
+    <script src="https://shardingsphere.apache.org/community/js/modernizr.custom.71422.js?1630829314"></script>
+    <script src="https://shardingsphere.apache.org/community/js/learn.js?1630829314"></script>
+    <script src="https://shardingsphere.apache.org/community/js/hugo-learn.js?1630829314"></script>
 
     
 

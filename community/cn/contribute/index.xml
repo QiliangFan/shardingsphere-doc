@@ -5,11 +5,7 @@
     <link>https://shardingsphere.apache.org/community/cn/contribute/</link>
     <description>Recent content in 参与和贡献 on ShardingSphere</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="https://shardingsphere.apache.org/community/cn/contribute/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="https://shardingsphere.apache.org/community/cn/contribute/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>订阅指南</title>
       <link>https://shardingsphere.apache.org/community/cn/contribute/subscribe/</link>
@@ -22,15 +18,6 @@
   接收欢迎邮件。 完成以上步骤后，您会收到一封主题为WELCOME to dev@shardingsphere.apache.org的欢迎邮件，至此您已成功订阅Apache ShardingSphere的邮件列表。
   至此，您可以通过订阅的邮箱接收及回复邮件，或通过查看归档邮件来跟踪邮件对话。
   </description>
-    </item>
-    
-    <item>
-      <title>搭建项目及环境指南</title>
-      <link>https://shardingsphere.apache.org/community/cn/contribute/establish-project/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://shardingsphere.apache.org/community/cn/contribute/establish-project/</guid>
-      <description>软件环境    软件 JDK Idea     版本 &amp;gt;=1.8 最新版本即可    安装步骤（ Mac 为例） 1.JDK 安装  下方链接获取适合自己环境的安装包（ mac 选取 .dmg 格式） https://www.oracle.com/java  下载完成后直接安装即可  2.设置环境变量 vim ~/.zprofile  在下方添加环境变量：  #jdk环境通过 .dmg 方式安装后默认为下方路径 JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_301.jdk/Contents/Home PATH=$JAVA_HOME/bin:$PATH:. CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:. export JAVA_HOME export PATH export CLASSPATH source ~/.zprofile 3.Idea 下载安装  下方链接获取适合自己环境的安装包 https://www.jetbrains.com/idea/download/#section=mac 下载后直接安装  4.Idea clone 代码  进入 Idea 工具栏&amp;ndash;&amp;gt;Git&amp;ndash;&amp;gt;Clone&amp;ndash;&amp;gt;Url(https://github.com/apache/shardingsphere.git)  等待结束就有刚刚克隆的最新的代码了  5.项目编译 #假设项目路径为 /Users/hanmeimei/IdeaProjects/shardingsphere/ cd /Users/hanmeimei/IdeaProjects/shardingsphere/ 编译环境 .</description>
     </item>
     
     <item>
@@ -58,7 +45,7 @@
       <description>提交者提名 ShardingSphere社区遵循Apache Community’s process 来接收新的提交者。 当您积极地参与ShardingSphere社区之后，项目管理委员会和项目官方提交者会根据您的表现发起吸纳您成为官方提交者和项目管理委员会成员的流程。
 提交者责任  开发新功能； 代码重构； 及时和可靠的评审Pull Request； 思考和接纳新特性请求； 解答问题； 维护文档和代码示例； 改进流程和工具； 引导新的参与者融入社区。  日常工作  每周负责轮值的Committer需要每天查看社区待处理的Pull Request和Issue列表，负责问题的处理：   包括标记issue，回复issue，关闭issue等； 将issue分配至熟悉该模块的贡献者； 轮值周期为一周。  Assignee在被分配issue后，需要进行如下判断：   判断是否是长期issue，如是，则标记为pending； 判断issue类型，如：bug，enhancement，discussion等； 标记Milestone。   Committer提交的PR，需要根据PR类型和当前发布的周期标注Label和Milestone。
   Committer review PR时，可以进行squash and merge to master的操作, 如果有问题可以加上change request或者@相关人员协助处理。
-  轮值顺序表    序列 开始时间 姓名 GitHub ID     1 2021/8/16 潘娟 tristaZero   2 2021/8/23 欧阳文 avalon566   3 2021/8/30 蒋晓峰 SteNicholas   4 2021/9/6 江龙滔 RaigorJiang   5 2021/9/13 孟浩然 menghaoranss   6 2021/9/20 端正强 strongduanmu   7 2021/9/27 孙念君 taojintianxia   8 2021/10/4 孙念君 taojintianxia   9 2021/10/11 钟红胜 sandynz   10 2021/10/18 兰城翔 lanchengx   11 2021/10/25 吴伟杰 TeslaCN   12 2021/11/1 蒋平川 dachuan9e   13 2021/11/8 姜茂林 jiangML   14 2021/11/15 陆敬尚 jingshanglu   15 2021/11/22 赵锦超 zjcnb   16 2021/11/29 陈出新 tuichenchuxin   17 2021/12/6 王波 wbtlb   18 2021/12/13 武建东 wujiandong   19 2021/12/20 侯阳 soulasuna   20 2021/12/27 王小满 wgy8283335    </description>
+  轮值顺序表    名字 GitHub ID     欧阳文 avalon566   蒋晓峰 SteNicholas   端正强 strongduanmu   董宗磊 dongzl   张亮 terrymanu   张永伦 tuohai666, zhangyonglun   潘娟 tristaZero   孟浩然 menghaoranss   秦金卫 kimmking   肖宇 yu199195    </description>
     </item>
     
     <item>
@@ -68,7 +55,7 @@
       
       <guid>https://shardingsphere.apache.org/community/cn/contribute/code-conduct/</guid>
       <description>以下行为准则以完全遵循Apache软件基金会行为准则为前提。
-开发理念  用心 保持责任心和敬畏心，以工匠精神持续雕琢。 可读 代码无歧义，通过阅读而非调试手段浮现代码意图。 整洁 认同《重构》和《代码整洁之道》的理念，追求整洁优雅代码。 一致 代码风格、命名以及使用方式保持完全一致。 精简 极简代码，以最少的代码表达最正确的意思。高度复用，无重复代码和配置。及时删除无用代码。 抽象 层次划分清晰，概念提炼合理。保持方法、类、包以及模块处于同一抽象层级。 极致 拒绝随意，保证任何一行代码、任何一个字母、任何一个空格都有其存在价值。  代码提交行为规范  确保通过全部测试用例，确保执行 ./mvnw -T 1C clean install 可以编译和测试通过。 确保覆盖率不低于master分支。 确保使用Checkstyle检查代码，违反验证规则的需要有特殊理由。模板位置在https://github.com/apache/shardingsphere/blob/master/src/resources/checkstyle.xml，请使用checkstyle 8.8运行规则。 应尽量将设计精细化拆分；做到小幅度修改，多次数提交，但应保证提交的完整性。 确保遵守编码规范。 如果您使用IDEA，可导入推荐的Settings。  编码规范  使用linux换行符。 缩进（包含空行）和上一行保持一致。 类声明后与下面的变量或方法之间需要空一行。 不应有无意义的空行。请提炼私有方法，代替方法体过长或代码段逻辑闭环而采用的空行间隔。 类、方法和变量的命名要做到顾名思义，避免使用缩写。 返回值变量使用result命名；循环中使用each命名循环变量；map中使用entry代替each。 捕获的异常名称命名为ex；捕获异常且不做任何事情，异常名称命名为ignored。 配置文件使用Spinal Case命名（一种使用-分割单词的特殊Snake Case）。 需要注释解释的代码尽量提成小方法，用方法名称解释。 equals和==条件表达式中，常量在左，变量在右；大于小于等条件表达式中，变量在左，常量在右。 除了构造器入参与全局变量名称相同的赋值语句外，避免使用this修饰符。 除了用于继承的抽象类之外，尽量将类设计为final。 嵌套循环尽量提成方法。 成员变量定义顺序以及参数传递顺序在各个类和方法中保持一致。 优先使用卫语句。 类和方法的访问权限控制为最小。 方法所用到的私有方法应紧跟该方法，如果有多个私有方法，书写私有方法应与私有方法在原方法的出现顺序相同。 方法入参和返回值不允许为null。 优先使用三目运算符代替if else的返回和赋值语句。 优先使用lombok代替构造器，getter, setter方法和log变量。 优先考虑使用LinkedList，只有在需要通过下标获取集合中元素值时再使用ArrayList。 ArrayList，HashMap等可能产生扩容的集合类型必须指定集合初始大小，避免扩容。 日志与注释一律使用英文。 注释只能包含javadoc，todo和fixme。 公开的类和方法必须有javadoc，其他类和方法以及覆盖自父类的方法无需javadoc。 条件运算符（&amp;lt;表达式1&amp;gt; ? &amp;lt;表达式2&amp;gt; : &amp;lt;表达式3&amp;gt;）禁止嵌套使用  单元测试规范  测试代码和生产代码需遵守相同代码规范。 单元测试需遵循AIR（Automatic, Independent, Repeatable）设计理念。  自动化（Automatic）：单元测试应全自动执行，而非交互式。禁止人工检查输出结果，不允许使用System.</description>
+开发理念  用心 保持责任心和敬畏心，以工匠精神持续雕琢。 可读 代码无歧义，通过阅读而非调试手段浮现代码意图。 整洁 认同《重构》和《代码整洁之道》的理念，追求整洁优雅代码。 一致 代码风格、命名以及使用方式保持完全一致。 精简 极简代码，以最少的代码表达最正确的意思。高度复用，无重复代码和配置。及时删除无用代码。 抽象 层次划分清晰，概念提炼合理。保持方法、类、包以及模块处于同一抽象层级。 极致 拒绝随意，保证任何一行代码、任何一个字母、任何一个空格都有其存在价值。  代码提交行为规范  确保通过全部测试用例，确保执行 ./mvnw -T 1C clean install 可以编译和测试通过。 确保覆盖率不低于master分支。 确保使用Checkstyle检查代码，违反验证规则的需要有特殊理由。模板位置在https://github.com/apache/shardingsphere/blob/master/src/resources/checkstyle.xml，请使用checkstyle 8.8运行规则。 应尽量将设计精细化拆分；做到小幅度修改，多次数提交，但应保证提交的完整性。 确保遵守编码规范。 如果您使用IDEA，可导入推荐的Settings。  编码规范  使用linux换行符。 缩进（包含空行）和上一行保持一致。 类声明后与下面的变量或方法之间需要空一行。 不应有无意义的空行。请提炼私有方法，代替方法体过长或代码段逻辑闭环而采用的空行间隔。 类、方法和变量的命名要做到顾名思义，避免使用缩写。 返回值变量使用result命名；循环中使用each命名循环变量；map中使用entry代替each。 捕获的异常名称命名为ex；捕获异常且不做任何事情，异常名称命名为ignored。 配置文件使用Spinal Case命名（一种使用-分割单词的特殊Snake Case）。 需要注释解释的代码尽量提成小方法，用方法名称解释。 equals和==条件表达式中，常量在左，变量在右；大于小于等条件表达式中，变量在左，常量在右。 除了构造器入参与全局变量名称相同的赋值语句外，避免使用this修饰符。 除了用于继承的抽象类之外，尽量将类设计为final。 嵌套循环尽量提成方法。 成员变量定义顺序以及参数传递顺序在各个类和方法中保持一致。 优先使用卫语句。 类和方法的访问权限控制为最小。 方法所用到的私有方法应紧跟该方法，如果有多个私有方法，书写私有方法应与私有方法在原方法的出现顺序相同。 方法入参和返回值不允许为null。 优先使用三目运算符代替if else的返回和赋值语句。 优先使用lombok代替构造器，getter, setter方法和log变量。 优先考虑使用LinkedList，只有在需要通过下标获取集合中元素值时再使用ArrayList。 ArrayList，HashMap等可能产生扩容的集合类型必须指定集合初始大小，避免扩容。 日志与注释一律使用英文。 注释只能包含javadoc，todo和fixme。 公开的类和方法必须有javadoc，其他类和方法以及覆盖自父类的方法无需javadoc。  单元测试规范  测试代码和生产代码需遵守相同代码规范。 单元测试需遵循AIR（Automatic, Independent, Repeatable）设计理念。  自动化（Automatic）：单元测试应全自动执行，而非交互式。禁止人工检查输出结果，不允许使用System.</description>
     </item>
     
     <item>

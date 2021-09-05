@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/</loc>
     <xhtml:link
@@ -14,9 +13,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/subscribe/</loc>
     <xhtml:link
                 rel="alternate"
@@ -28,37 +25,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/subscribe/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/community/en/contribute/establish-project/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/community/cn/contribute/establish-project/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/community/en/contribute/establish-project/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/community/en/powered-by/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/community/cn/powered-by/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/community/en/powered-by/"
-                />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/contributor/</loc>
     <xhtml:link
                 rel="alternate"
@@ -70,23 +37,19 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/contributor/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/community/en/team/</loc>
+  </url><url>
+    <loc>https://shardingsphere.apache.org/community/en/powered-by/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://shardingsphere.apache.org/community/cn/team/"
+                href="https://shardingsphere.apache.org/community/cn/powered-by/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://shardingsphere.apache.org/community/en/team/"
+                href="https://shardingsphere.apache.org/community/en/powered-by/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/committer/</loc>
     <xhtml:link
                 rel="alternate"
@@ -98,23 +61,19 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/committer/"
                 />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/community/en/security/</loc>
+  </url><url>
+    <loc>https://shardingsphere.apache.org/community/en/team/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://shardingsphere.apache.org/community/cn/security/"
+                href="https://shardingsphere.apache.org/community/cn/team/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://shardingsphere.apache.org/community/en/security/"
+                href="https://shardingsphere.apache.org/community/en/team/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/code-conduct/</loc>
     <xhtml:link
                 rel="alternate"
@@ -126,9 +85,19 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/code-conduct/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
+    <loc>https://shardingsphere.apache.org/community/en/security/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/community/cn/security/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/community/en/security/"
+                />
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/issue-conduct/</loc>
     <xhtml:link
                 rel="alternate"
@@ -140,9 +109,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/issue-conduct/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/document-contributor/</loc>
     <xhtml:link
                 rel="alternate"
@@ -154,9 +121,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/document-contributor/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/release/</loc>
     <xhtml:link
                 rel="alternate"
@@ -168,9 +133,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/release/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/release_ui/</loc>
     <xhtml:link
                 rel="alternate"
@@ -182,9 +145,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/release_ui/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/release-elasticjob/</loc>
     <xhtml:link
                 rel="alternate"
@@ -196,9 +157,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/release-elasticjob/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/release-elasticjob-ui/</loc>
     <xhtml:link
                 rel="alternate"
@@ -210,9 +169,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/release-elasticjob-ui/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/2fa/</loc>
     <xhtml:link
                 rel="alternate"
@@ -224,9 +181,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/2fa/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/icla/</loc>
     <xhtml:link
                 rel="alternate"
@@ -238,9 +193,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/icla/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/contribute/vote/</loc>
     <xhtml:link
                 rel="alternate"
@@ -252,9 +205,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/contribute/vote/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -266,9 +217,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/categories/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/</loc>
     <xhtml:link
                 rel="alternate"
@@ -280,9 +229,7 @@
                 hreflang="en"
                 href="https://shardingsphere.apache.org/community/en/"
                 />
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://shardingsphere.apache.org/community/en/tags/</loc>
     <xhtml:link
                 rel="alternate"
@@ -295,5 +242,4 @@
                 href="https://shardingsphere.apache.org/community/en/tags/"
                 />
   </url>
-  
 </urlset>

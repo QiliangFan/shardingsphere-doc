@@ -136,42 +136,42 @@
 <table>
 <thead>
 <tr>
-<th align="center">Contrast</th>
-<th align="center">Local Transaction</th>
-<th align="center">Two-Phase Commit</th>
-<th align="center">Flexible Transaction</th>
+<th style="text-align:center">Contrast</th>
+<th style="text-align:center">Local Transaction</th>
+<th style="text-align:center">Two-Phase Commit</th>
+<th style="text-align:center">Flexible Transaction</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">Business Transformation</td>
-<td align="center">No need</td>
-<td align="center">No need</td>
-<td align="center">Implement related interfaces</td>
+<td style="text-align:center">Business Transformation</td>
+<td style="text-align:center">No need</td>
+<td style="text-align:center">No need</td>
+<td style="text-align:center">Implement related interfaces</td>
 </tr>
 <tr>
-<td align="center">Consistency</td>
-<td align="center">Not support</td>
-<td align="center">Support</td>
-<td align="center">Final consistency</td>
+<td style="text-align:center">Consistency</td>
+<td style="text-align:center">Not support</td>
+<td style="text-align:center">Support</td>
+<td style="text-align:center">Final consistency</td>
 </tr>
 <tr>
-<td align="center">Isolation</td>
-<td align="center">Not support</td>
-<td align="center">Support</td>
-<td align="center">Business guarantee</td>
+<td style="text-align:center">Isolation</td>
+<td style="text-align:center">Not support</td>
+<td style="text-align:center">Support</td>
+<td style="text-align:center">Business guarantee</td>
 </tr>
 <tr>
-<td align="center">Concurrent Performance</td>
-<td align="center">No effect</td>
-<td align="center">Severe decline</td>
-<td align="center">Slight decline</td>
+<td style="text-align:center">Concurrent Performance</td>
+<td style="text-align:center">No effect</td>
+<td style="text-align:center">Severe decline</td>
+<td style="text-align:center">Slight decline</td>
 </tr>
 <tr>
-<td align="center">Suitable Scenarios</td>
-<td align="center">Inconsistent processing by business party</td>
-<td align="center">Short transaction &amp; Low concurrency</td>
-<td align="center">Long transaction &amp; High concurrency</td>
+<td style="text-align:center">Suitable Scenarios</td>
+<td style="text-align:center">Inconsistent processing by business party</td>
+<td style="text-align:center">Short transaction &amp; Low concurrency</td>
+<td style="text-align:center">Long transaction &amp; High concurrency</td>
 </tr>
 </tbody>
 </table>
@@ -226,7 +226,7 @@
 <h4 id="access-point----distributed-transaction-for-native-transaction-interface">Access point &ndash; Distributed transaction for native transaction interface</h4>
 <p>The goal of Apache ShardingSphere (Incubating) is to use sharded multi-databases like a database. In the transaction module, this goal is still applicable. No matter how fragmented the database managed by ShardingSphere, there is always only one logical database for developers. Therefore, ShardingSphere&rsquo;s transaction interface is still the native local transaction interface, namely the <code>setAutoCommit</code>, <code>commit</code> and <code>rollback</code> methods of JDBC&rsquo;s <code>java.sql.Connection</code>. And the <code>begin</code>, <code>commit</code> and <code>rollback</code> statements for the database transaction manager. While the users calls the native local transaction interface, ShardingSphere guarantees the distributed transactions of the backend sharded database through the sharding-transaction module.</p>
 <p>Since the native transaction interface does not support transaction types, ShardingSphere provides 3 ways for users to switch transaction types.</p>
-<p>1.Switch the current transaction type through RAL (Resource &amp; Rule Administration Language). Just enter it in SQL execution mode, and it is applicable to Sharding-Proxy. For example: <code>SET VARIABLE TRANSACTION_TYPE=BASE</code>.</p>
+<p>1.Switch the current transaction type through SCTL (sharding-ctl, the database management command provided by ShardingSphere). Just enter it in SQL execution mode, and it is applicable to Sharding-JDBC and Sharding-Proxy. For example: <code>SCTL:SET TRANSACTION_TYPE=BASE</code>.</p>
 <p>2.Switch the current transaction type through <code>Threadlocal</code>, suitable for Sharding-JDBC. For example: <code>TransactionTypeHolder.set (TransactionType.XA)</code>.</p>
 <p>3.Through meta-annotation, and used with Spring to switch the current transaction type, suitable for Sharding-JDBC and Sharding-Proxy. For example: <code>@ShardingTransactionType (TransactionType.BASE)</code>.</p>
 <h3 id="future-plan">Future plan</h3>
@@ -243,42 +243,42 @@
 <table>
 <thead>
 <tr>
-<th align="center">Contrast</th>
-<th align="center">Local Transaction</th>
-<th align="center">Two-Phase Commit</th>
-<th align="center">Flexible Transaction</th>
+<th style="text-align:center">Contrast</th>
+<th style="text-align:center">Local Transaction</th>
+<th style="text-align:center">Two-Phase Commit</th>
+<th style="text-align:center">Flexible Transaction</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center">Business Transformation</td>
-<td align="center">No need</td>
-<td align="center">No need</td>
-<td align="center"><font color=#ff0000>No need</font></td>
+<td style="text-align:center">Business Transformation</td>
+<td style="text-align:center">No need</td>
+<td style="text-align:center">No need</td>
+<td style="text-align:center"><font color=#ff0000>No need</font></td>
 </tr>
 <tr>
-<td align="center">Consistency</td>
-<td align="center">Not support</td>
-<td align="center">Support</td>
-<td align="center">Final consistency</td>
+<td style="text-align:center">Consistency</td>
+<td style="text-align:center">Not support</td>
+<td style="text-align:center">Support</td>
+<td style="text-align:center">Final consistency</td>
 </tr>
 <tr>
-<td align="center">Isolation</td>
-<td align="center">Not support</td>
-<td align="center">Support</td>
-<td align="center"><font color=#ff0000>Planning</font></td>
+<td style="text-align:center">Isolation</td>
+<td style="text-align:center">Not support</td>
+<td style="text-align:center">Support</td>
+<td style="text-align:center"><font color=#ff0000>Planning</font></td>
 </tr>
 <tr>
-<td align="center">Concurrent Performance</td>
-<td align="center">No effect</td>
-<td align="center">Severe decline</td>
-<td align="center">Slight decline</td>
+<td style="text-align:center">Concurrent Performance</td>
+<td style="text-align:center">No effect</td>
+<td style="text-align:center">Severe decline</td>
+<td style="text-align:center">Slight decline</td>
 </tr>
 <tr>
-<td align="center">Suitable Scenarios</td>
-<td align="center">Inconsistent processing by business party</td>
-<td align="center">Short transaction &amp; Low concurrency</td>
-<td align="center">Long transaction &amp; High concurrency</td>
+<td style="text-align:center">Suitable Scenarios</td>
+<td style="text-align:center">Inconsistent processing by business party</td>
+<td style="text-align:center">Short transaction &amp; Low concurrency</td>
+<td style="text-align:center">Long transaction &amp; High concurrency</td>
 </tr>
 </tbody>
 </table>
@@ -289,8 +289,8 @@
 	</div>
 
 	<div class="pagination">
-		<a href="https://shardingsphere.apache.org/blog/en/videos/newfeature/" class="left arrow">&#8592;</a>
-		<a href="https://shardingsphere.apache.org/blog/en/videos/ecosystem/" class="right arrow">&#8594;</a>
+		<a href="https://shardingsphere.apache.org/blog/en/material/committer/" class="left arrow">&#8592;</a>
+		<a href="https://shardingsphere.apache.org/blog/en/material/seata/" class="right arrow">&#8594;</a>
 
 		<a href="#" class="top">Top</a>
 	</div>

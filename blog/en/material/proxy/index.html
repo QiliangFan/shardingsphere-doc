@@ -127,21 +127,21 @@
 <p><img src="https://shardingsphere.apache.org/blog/img/proxy6.jpg" alt=""></p>
 <p>JDBC executes query two times towards MySQL and MySQL returns results with the same times. We don&rsquo;t expect first message for PreparedStatement because of no question mark. It implies no effect to prepare, doesn&rsquo;t work for MySQL at least.</p>
 <p>For the issue I think everyone makes sense without setting useServerPrepStmts=true to JDBC url. MySQL do prepare through the parameter. It&rsquo;s pointless if you don&rsquo;t set it although JDBC wants to perform preparation, because it is insensible to MySQL. Let&rsquo;s set the parameter in the url next:</p>
-<pre><code>jdbc:mysql://127.0.0.1:3306/demo_ds?useServerPrepStmts=true
+<pre tabindex="0"><code>jdbc:mysql://127.0.0.1:3306/demo_ds?useServerPrepStmts=true
 </code></pre><p>Here is the new interaction:</p>
 <p><img src="https://shardingsphere.apache.org/blog/img/proxy7.jpg" alt=""></p>
 <p>It&rsquo;s a correct procedure at the first sight: for the first message, it&rsquo;s PreparedStatement which has question mark within SELECT; for the second message, MySQL points out to get ready for JDBC; for the third message, JDBC sets user_id=10; for the fourth message, MySQL returns query result; for the fifth message, why does JDBC send PreparedStatement once more?</p>
 <p>Each query should transfer its value of parameter through ExecuteStatement in expectation, then it takes effect of one precompiled and more preformation.</p>
 <p>If &ldquo;precompiled&rdquo; every time, there is no difference with normal query in addition to cost of two passing message: Response(prepareok) and ExecuteStatement(parameter=10). Here is the performance issue.</p>
 <p>It should be something wrong if precompiled doesn&rsquo;t work. I read source code of JDBC in order to work it out, and find an important setting - cachePrepStmts. What will happen to set it:</p>
-<pre><code>jdbc:mysql://127.0.0.1:3306/demo_ds?
+<pre tabindex="0"><code>jdbc:mysql://127.0.0.1:3306/demo_ds?
 useServerPrepStmts=true&amp;cachePrepStmts=true
 </code></pre><p>We get the expected message flow. The speed is much faster than normal query after test.</p>
 <p><img src="https://shardingsphere.apache.org/blog/img/proxy8.jpg" alt=""></p>
 <p>At the beginning of fifth message, it&rsquo;s enough to transfers value of parameter for each query. We reach the goal of one precompiled and more preformation in the final, MySQL efficiency improves a lot. Due to shorter length of message, network IO efficiency is much better.</p>
-<p>That is how &ldquo;cachePrepStmts=true&rdquo; works: JDBC cache needs prepared SQL. Here is an example of &ldquo;SELECT*FROMt_orderWHEREuser_id=?&quot;, after running once, it skips PreparedStatement next time and make use of ExecuteStatement to set param value.</p>
+<p>That is how &ldquo;cachePrepStmts=true&rdquo; works: JDBC cache needs prepared SQL. Here is an example of &ldquo;SELECT*FROMt_orderWHEREuser_id=?&rdquo;, after running once, it skips PreparedStatement next time and make use of ExecuteStatement to set param value.</p>
 <p>when making it clear, you will know how to optimize Proxy. Proxy is using Hikari as database connecting pool. In time of initialization, it will set two parameters above.</p>
-<pre><code>config.addDataSourceProperty(&quot;useServerPrepStmts&quot;,&quot;true&quot;);
+<pre tabindex="0"><code>config.addDataSourceProperty(&quot;useServerPrepStmts&quot;,&quot;true&quot;);
 config.addDataSourceProperty(&quot;cachePrepStmts&quot;,&quot;true&quot;);
 </code></pre><p>This guarantees the performance between Proxy and MySQL services. So how is the performance between Proxy AND Client guaranteed.</p>
 <p>Proxy does not forward this message to MySQL when it receives the Client’s PreparedStatement because the fragmentation key in SQL is a question mark and Proxy does not know which real database to route to. Proxy simply catches the SQL upon receiving this message, storing it in a Statementld to the inside of the SQL map, the database is not actually requested until the ExecuteStatement is received.</p>
@@ -160,7 +160,7 @@ config.addDataSourceProperty(&quot;cachePrepStmts&quot;,&quot;true&quot;);
 <p>It&rsquo;s not easy to make counts of connection equal with CPU, we have to take IO of network/disk into consideration. When IO occurs and thread is blocked, operation system will assign free CPU to other threads. If thread is always blocked at I/O, we could set a little more of connection than CPU, then perform more tasks within the same time, but what should value be? PostgreSQL does a benchmark test:</p>
 <p><img src="https://shardingsphere.apache.org/blog/img/proxy10.jpg" alt=""></p>
 <p>Increased speed of TPS starts to be slow from 50. According to the result, PostgreSQL gives the following formula:</p>
-<pre><code>connections=((core_count*2)+effective_spindle_count)
+<pre tabindex="0"><code>connections=((core_count*2)+effective_spindle_count)
 </code></pre><p>connection count = ((cores*2) + count disk).  60 connections are enough at a 32 core machine. so there is no need to set hundreds of connections for Proxy, it&rsquo;s not only wastes resources, but also slows down the speed.</p>
 <h4 id="3--optimization-of-resultset-conflation">3.  Optimization of resultset conflation</h4>
 <p>Proxy communicates with real database by JDBC at present, asynchronous access mode of Netty+MySQLProtocol will be released soon. They will coexist, which way to choose depends on client.</p>
@@ -169,12 +169,12 @@ config.addDataSourceProperty(&quot;cachePrepStmts&quot;,&quot;true&quot;);
 <p><img src="https://shardingsphere.apache.org/blog/img/proxy11.jpg" alt=""></p>
 <p>Memory of Proxy increases all the time, although GC is triggered. The reason is that ResultSet will be blocked next() until all the querying datas storing into memory. It&rsquo;s default way for ResultSet to retrieve data.</p>
 <p>Is there any way to consume data immediately when ResultSet getting an item? Here is description in the Connector/J document:</p>
-<pre><code>If you are working with ResultSets that have a large number of rows or large values and cannot allocate heap space in your JVM for the memory required, you can tell the driver to stream the results back one row at a time.
+<pre tabindex="0"><code>If you are working with ResultSets that have a large number of rows or large values and cannot allocate heap space in your JVM for the memory required, you can tell the driver to stream the results back one row at a time.
 
 </code></pre><p>Link reference:</p>
 <p><a href="https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-implementation-notes.html">https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-implementation-notes.html</a></p>
 <p>To activate the ability, you only need to set a parameter when creating the statement instance:</p>
-<pre><code>stmt.setFetchSize(Integer.MIN_VALUE);
+<pre tabindex="0"><code>stmt.setFetchSize(Integer.MIN_VALUE);
 </code></pre><p>You make it. Proxy consumes data at once by next() after querying the instruction, these data will be clean up at next GC. During resultset conflation, we also need to merge data in time, there is need to merge after retrieving them all, Sharding-Core provides the interface. Here is the optimized result, figure1 below:</p>
 <p><img src="https://shardingsphere.apache.org/blog/img/proxy12.jpg" alt=""></p>
 <p>Data in the memory stays shorter, GC recycles data each time, memory efficiency improves a lot. It seems we are crowned with success, but issues are deep in, follow with me to figure them out. The expected situation where the speed of data consumption from Client is faster than the one from Proxy at figure2.</p>
@@ -251,7 +251,7 @@ config.addDataSourceProperty(&quot;cachePrepStmts&quot;,&quot;true&quot;);
 	</div>
 
 	<div class="pagination">
-		<a href="https://shardingsphere.apache.org/blog/en/videos/opengauss/" class="left arrow">&#8592;</a>
+		<a href="https://shardingsphere.apache.org/blog/en/material/realization/" class="right arrow">&#8594;</a>
 
 		<a href="#" class="top">Top</a>
 	</div>
