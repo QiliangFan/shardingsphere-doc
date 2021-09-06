@@ -28,11 +28,12 @@ export TZ="Asia/Shanghai"
 echo "[1] ====>>>> process shardingsphere/docs"
 echo git clone https://github.com/apache/shardingsphere
 
-# git clone https://github.com.cnpmjs.org/qiliangfan/shardingsphere _shardingsphere 
+git clone https://github.com.cnpmjs.org/qiliangfan/shardingsphere _shardingsphere 
 
 # ------------------------- build history docs --------------------------------------
 cd _shardingsphere
 TAGS=(`git tag --sort=taggerdate | grep -E '^[[:digit:]]+.[[:digit:]]+.*+'`)
+VALID_TAGS=()
 
 # generate released document
 if [ ${#TAGS} -gt 0 ] ; then
@@ -43,6 +44,7 @@ if [ ${#TAGS} -gt 0 ] ; then
       echo "generate $tag documnet"
       git checkout $tag
       if [ -d docs/document -a -f docs/build.sh ] ; then
+        VALID_TAGS=(${VALID_TAGS[@]} $tag)
         dir=$tag
         env HUGO_BASEURL="https://shardingsphere.apache.org/document/$dir/" \
           HUGO_PARAMS_EDITURL="" \
@@ -55,7 +57,7 @@ if [ ${#TAGS} -gt 0 ] ; then
 fi
 
 # generate version data
-echo "[\""$(echo ${TAGS[@]}|xargs|sed 's/ /","/g')"\"]" > ../versions.json
+echo "[\""$(echo ${VALID_TAGS[@]}|xargs|sed 's/ /","/g')"\"]" > ../versions.json
 
 
 # -----------------------------------------------------------------------------------
