@@ -42,7 +42,7 @@ if [ ${#TAGS} -gt 0 ] ; then
       count=1
       echo "generate $tag documnet"
       git checkout $tag
-      if [ -d docs/document -a -f build.sh ] ; then
+      if [ -d docs/document -a -f docs/build.sh ] ; then
         dir=$tag
         env HUGO_BASEURL="https://shardingsphere.apache.org/document/$dir/" \
           HUGO_PARAMS_EDITURL="" \
