@@ -57,7 +57,7 @@ if [ ${#TAGS} -gt 0 ] ; then
 fi
 
 # generate version data
-echo "[\""$(echo ${VALID_TAGS[@]}|xargs|sed 's/ /","/g')"\"]" > ../versions.json
+echo "[\""$(echo ${VALID_TAGS[@]}|sed 's/ /","/g')"\"]" > ../versions.json
 
 
 # -----------------------------------------------------------------------------------
