@@ -39,12 +39,12 @@ VALID_TAGS=()
 if [ ${#TAGS} -gt 0 ] ; then
   for tag in ${TAGS[@]}
   do
-    if [ ! -d ../document/$tag ] ; then
-      count=1
-      echo "generate $tag documnet"
-      git checkout $tag
-      if [ -d docs/document -a -f docs/build.sh ] ; then
-        VALID_TAGS=(${VALID_TAGS[@]} $tag)
+    echo "generate $tag documnet"
+    git checkout $tag
+    if [ -d docs/document -a -f docs/build.sh ] ; then
+      VALID_TAGS=(${VALID_TAGS[@]} $tag)
+      if [ ! -d ../document/$tag ] ; then
+        count=1
         dir=$tag
         env HUGO_BASEURL="https://shardingsphere.apache.org/document/$dir/" \
           HUGO_PARAMS_EDITURL="" \
