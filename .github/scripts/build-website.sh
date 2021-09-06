@@ -16,8 +16,8 @@
 #
 
 echo config user shardingsphere
-git config --global user.email "dev@shardingsphere.apache.org"
-git config --global user.name "shardingsphere"
+git config --global user.email "1035847702@qq.com"
+git config --global user.name "qiliangfan"
 
 count=0
 export TZ="Asia/Shanghai"
@@ -28,32 +28,34 @@ export TZ="Asia/Shanghai"
 echo "[1] ====>>>> process shardingsphere/docs"
 echo git clone https://github.com/apache/shardingsphere
 
-git clone https://github.com.cnpmjs.org/qiliangfan/shardingsphere _shardingsphere 
+# git clone https://github.com.cnpmjs.org/qiliangfan/shardingsphere _shardingsphere 
 
 # ------------------------- build history docs --------------------------------------
 cd _shardingsphere
-TAGS=(`git tag --sort=taggerdate -l 'shardingsphere-doc-*'`)
+TAGS=(`git tag --sort=taggerdate | grep -E '^[[:digit:]]+.[[:digit:]]+.*+'`)
 
 # generate released document
 if [ ${#TAGS} -gt 0 ] ; then
   for tag in ${TAGS[@]}
   do
-    if [ ! -d ../document/$(echo $tag|sed 's/shardingsphere-doc-//g') ] ; then
+    if [ ! -d ../document/$tag ] ; then
       count=1
       echo "generate $tag documnet"
       git checkout $tag
-      dir=$(echo $tag|sed 's/shardingsphere-doc-//g')
-      env HUGO_BASEURL="https://shardingsphere.apache.org/document/$dir/" \
-        HUGO_PARAMS_EDITURL="" \
-        bash docs/build.sh
-      find docs/target/document/current -name '*.html' -exec sed -i -e 's|<option id="\([a-zA-Z]\+\)" value="/document/current|<option id="\1" value="/document/'$dir'|g' {} \;
-      mv docs/target/document/current/ ../document/$dir
+      if [ -d docs/document -a -f build.sh ] ; then
+        dir=$tag
+        env HUGO_BASEURL="https://shardingsphere.apache.org/document/$dir/" \
+          HUGO_PARAMS_EDITURL="" \
+          bash docs/build.sh
+        find docs/target/document/current -name '*.html' -exec sed -i -e 's|<option id="\([a-zA-Z]\+\)" value="/document/current|<option id="\1" value="/document/'$dir'|g' {} \;
+        mv docs/target/document/current/ ../document/$dir
+      fi
     fi
   done
 fi
 
 # generate version data
-echo "[\""$(echo ${TAGS[@]}|sed 's/shardingsphere-doc-//g'|xargs|sed 's/ /","/g')"\"]" > ../versions.json
+echo "[\""$(echo ${TAGS[@]}|xargs|sed 's/ /","/g')"\"]" > ../versions.json
 
 
 # -----------------------------------------------------------------------------------
